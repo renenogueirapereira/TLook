@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(120deg, #0b1a0b, #132e13, #0b1a0b);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+  color: white;
+}
+
+/* GRADIENTE ANIMADO */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* GLOW */
+.glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(60,255,0,0.25), transparent 70%);
+  filter: blur(60px);
+  animation: floatGlow 12s infinite ease-in-out;
+  z-index: -1;
+}
+
+.glow1 { top: -50px; left: -50px; }
+.glow2 { bottom: -50px; right: -50px; animation-delay: 4s; }
+.glow3 { top: 40%; left: 60%; animation-delay: 2s; }
+
+@keyframes floatGlow {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(40px, 40px); }
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+}
+
+/* TOPO */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+.back a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.progress-container {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #3cff00;
+  transition: 0.4s;
+}
+
+#progress-text {
+  font-size: 14px;
+}
+
+/* CARD (GLASS) */
+.card {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 30px rgba(0,255,100,0.1);
+
+  text-align: center;
+}
+
+/* PASSOS */
+.step {
+  display: none;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: 0.4s;
+}
+
+.step.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* BOTÕES */
+button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #1c5f08;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2faa10;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tlook</title>
+  <link rel="stylesheet" href="../css/funil.css">
+</head>
+
+<body>
+
+<!-- FUNDO FINTECH -->
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+<div class="glow glow3"></div>
+
+<div class="container">
+
+  <!-- TOPO -->
+  <div class="top-bar">
+    <button class="back" onclick="voltar()">
+      <a href="./cadastrar.html" onclick="voltar()">←</a>
+    </button>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <span id="progress-text">1/6</span>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <div class="step active">
+      <h2>Qual esporte você pratica?</h2>
+      <button onclick="next('volei')">Vôlei</button>
+      <button onclick="next('jiu')">Jiu-jitsu</button>
+    </div>
+
+    <div class="step">
+      <h2>Você é iniciante?</h2>
+      <button onclick="next('sim')">Sim</button>
+      <button onclick="next('nao')">Não</button>
+    </div>
+
+    <div class="step">
+      <h2>Quantas vezes por semana?</h2>
+      <button onclick="next('1-2')">1-2x</button>
+      <button onclick="next('3-4')">3-4x</button>
+      <button onclick="next('5+')">5 ou +</button>
+    </div>
+
+    <div class="step">
+      <h2>Qual seu peso?</h2>
+      <input type="number" id="peso" placeholder="Ex: 70 (kg)" min="0" step="0.1">
+      <button onclick="nextInput('peso')">Continuar</button>
+    </div>
+
+    <div class="step">
+      <h2>Qual sua altura?</h2>
+      <input type="number" id="altura" placeholder="Ex: 1.75 (m)" min="0" step="0.01">
+      <button onclick="nextInput('altura')">Finalizar</button>
+    </div>
+
+    <div class="step" id="final">
+      <h2>Finalizando...</h2>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="../backend/firebase.js"></script>
+<script type="module" src="../js/funil.js"></script>
+<script src="../backend/funil_back.js"></script>
+</body>
+</html>

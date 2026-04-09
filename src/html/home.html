@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="../css/stylepagina.css">
+
+<!-- Chart.js grátis -->
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+  <img src="../images/eyes-logo-removebg-preview.png" class="logo">
+  <img src="https://i.pravatar.cc/100" class="profile">
+</header>
+
+<div class="content">
+
+<h2>Seu Progresso</h2>
+
+<canvas id="graficoPeso"></canvas>
+<canvas id="graficoIMC"></canvas>
+
+</div>
+
+<nav class="nav">
+  <button onclick="go('home.html')">Início</button>
+  <button onclick="go('treino.html')">Treino</button>
+  <button onclick="go('avaliacao.html')">Avaliação</button>
+  <button onclick="go('perfil.html')">Perfil</button>
+</nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script type="module" src="../backend/firebase.js"></script>
+<script type="module" src="../js/home.js"></script>
+<script src="../js/nav.js"></script>
+
+</body>
+</html>

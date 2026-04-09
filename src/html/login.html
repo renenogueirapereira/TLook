@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tvision</title>
+  <link rel="stylesheet" href="../css/stylentrada.css">
+</head>
+
+<body>
+  <div class="tudo">
+
+    <div class="logo">
+      <img src="../img/logo-completa-removebg.png" alt="">
+    </div>
+
+    <div class="infor">
+      
+      <input type="text" class="inbox" placeholder="Email" />
+
+      <div class="esqueci">
+        <input type="text" class="inbox" placeholder="Senha" />
+        <a href="./esquece-senha.html">Esqueci minha senha</a>
+      </div>
+
+    </div>
+
+    <div class="entrada-saida">
+      <a onclick="fazerLogin()" class="entra">Entrar</a>
+      <div class="Nconta">
+        <p>Não tem uma conta?</p>
+        <a href="./cadastrar.html">Cadastre-se</a>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  function fazerLogin() {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  login(email, senha); // 🔥 firebase
+}
+</script>
+
+</body>
+
+</html>
