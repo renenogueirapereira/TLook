@@ -17,17 +17,17 @@
 
     <div class="infor">
       
-      <input type="text" class="inbox" placeholder="Email" />
+     <input type="text" id="email" class="inbox" placeholder="Email" />
 
       <div class="esqueci">
-        <input type="text" class="inbox" placeholder="Senha" />
+        <input type="password" id="senha" class="inbox" placeholder="Senha" />
         <a href="./esquece-senha.html">Esqueci minha senha</a>
       </div>
 
     </div>
 
     <div class="entrada-saida">
-      <a onclick="fazerLogin()" class="entra">Entrar</a>
+      <a onclick="loginLocal()" class="entra">Entrar</a>
       <div class="Nconta">
         <p>Não tem uma conta?</p>
         <a href="./cadastrar.html">Cadastre-se</a>
@@ -36,11 +36,12 @@
 
   </div>
 
+  <script src="../js/database.js"></script>
 <script>
   function fazerLogin() {
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
-
+ 
   login(email, senha); // 🔥 firebase
 }
 </script>

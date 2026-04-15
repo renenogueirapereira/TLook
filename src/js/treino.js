@@ -1,85 +1,36 @@
-import { auth, db } from "../backend/firebase.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+document.addEventListener("DOMContentLoaded", () => {
 
-onAuthStateChanged(auth, async (user) => {
-
+  const user = DB.getUsuarioLogado();
   if (!user) return;
 
   const lista = document.getElementById("listaTreinos");
-  if (!lista) return;
 
-  // 🔥 pega dados do usuário no Firebase
-  const snapUser = await getDoc(doc(db, "usuarios", user.uid));
-  if (!snapUser.exists()) return;
+  let treinos = user.esporte === "volei"
+    ? ["Agachamento", "Salto", "Leg Press"]
+    : ["Puxada", "Terra", "Pegada"];
 
-  const dados = snapUser.data();
-
-  let treinos;
-
-  if (dados.esporte === "volei") {
-    treinos = ["Agachamento", "Salto", "Leg Press"];
-  } else {
-    treinos = ["Puxada", "Terra", "Pegada"];
-  }
-
-  // 🔥 renderiza treinos
   lista.innerHTML = treinos.map((nome, i) => `
     <div class="card">
-      <p>${nome} - 4x10</p>
-
+      <p>${nome}</p>
       <input id="c${i}" type="number" placeholder="Carga">
-
-      <button onclick="salvarTreinoBtn('${nome}', 'c${i}')">
-        Salvar
-      </button>
-
-      <canvas id="g${i}"></canvas>
+      <button onclick="salvar(${i}, '${nome}')">Salvar</button>
     </div>
   `).join("");
 
-  // 🔥 carregar gráficos reais
-  setTimeout(() => carregarGraficos(user.uid, treinos), 200);
+  window.salvar = (i, nome) => {
+    const carga = document.getElementById("c"+i).value;
+
+    if (!user.treinos[nome]) user.treinos[nome] = [];
+
+    user.treinos[nome].push({ carga });
+
+    let usuarios = DB.getUsuarios();
+    usuarios = usuarios.map(u => u.id === user.id ? user : u);
+
+    DB.salvarUsuarios(usuarios);
+    DB.setUsuarioLogado(user);
+
+    alert("Salvo!");
+  };
 
 });
-
-
-// =======================
-// SALVAR TREINO (BOTÃO)
-// =======================
-function salvarTreinoBtn(nome, inputId) {
-  const carga = document.getElementById(inputId).value;
-
-  // usa função do firebase.js
-  salvarTreino(nome, carga);
-}
-
-
-// =======================
-// CARREGAR GRÁFICOS
-// =======================
-async function carregarGraficos(uid, treinos) {
-
-  const snap = await getDoc(doc(db, "treinos", uid));
-  if (!snap.exists()) return;
-
-  const dados = snap.data();
-
-  treinos.forEach((nome, i) => {
-
-    const historico = dados[nome] || [];
-
-    new Chart(document.getElementById("g" + i), {
-      type: 'line',
-      data: {
-        labels: historico.map((_, j) => "T" + (j+1)),
-        datasets: [{
-          label: nome,
-          data: historico.map(d => d.carga)
-        }]
-      }
-    });
-
-  });
-
-}

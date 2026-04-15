@@ -90,7 +90,6 @@ function finalizar() {
   const classificacao = classificarIMC(imc);
 
   const final = document.getElementById("final");
-  if (!final) return;
 
   final.innerHTML = `
     <h2>Resultado</h2>
@@ -99,19 +98,28 @@ function finalizar() {
     <button onclick="irHome()">Começar agora</button>
   `;
 
-  // 🔥 Firebase (se existir)
-  if (typeof salvarFunil === "function") {
-    salvarFunil(
-      respostas.esporte || "volei",
-      peso,
-      altura
-    );
-  }
-}
+  let usuarios = DB.getUsuarios();
+  let user = DB.getUsuarioLogado();
 
+  user.esporte = respostas.pergunta0 || "volei";
+  user.peso = peso;
+  user.altura = altura;
+  user.imc = imc;
+
+  user.historico.push({
+    peso,
+    imc,
+    data: new Date()
+  });
+
+  usuarios = usuarios.map(u => u.id === user.id ? user : u);
+
+  DB.salvarUsuarios(usuarios);
+  DB.setUsuarioLogado(user);
+}
 /* ================= NAVEGAÇÃO ================= */
 function irHome() {
-  window.location.href = "../html/index.html";
+  window.location.href = "../html/home.html";
 }
 
 /* ================= START ================= */

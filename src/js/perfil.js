@@ -1,19 +1,15 @@
-import { auth, db } from "../backend/firebase.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+document.addEventListener("DOMContentLoaded", () => {
 
-onAuthStateChanged(auth, async (user) => {
+  const user = DB.getUsuarioLogado();
 
-  if (!user) return;
+  if (!user) {
+    alert("Nenhum usuário logado!");
+    return;
+  }
 
-  const snap = await getDoc(doc(db, "usuarios", user.uid));
-  if (!snap.exists()) return;
-
-  const dados = snap.data();
-
-  document.getElementById("pPeso").innerText = dados.peso || "-";
-  document.getElementById("pAltura").innerText = dados.altura || "-";
-  document.getElementById("pImc").innerText = dados.imc || "-";
-  document.getElementById("pEsporte").innerText = dados.esporte || "-";
+  document.getElementById("pPeso").innerText = user.peso || "-";
+  document.getElementById("pAltura").innerText = user.altura || "-";
+  document.getElementById("pImc").innerText = user.imc || "-";
+  document.getElementById("pEsporte").innerText = user.esporte || "-";
 
 });

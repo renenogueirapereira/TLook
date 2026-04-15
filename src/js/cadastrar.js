@@ -1,30 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
+const novoUsuario = {
+  id: Date.now(),
+  nome,
+  email,
+  senha,
+  peso: null,
+  altura: null,
+  imc: null,
+  esporte: null,
+  historico: [],
+  treinos: {}
+};
 
-  const botao = document.querySelector(".entra");
+usuarios.push(novoUsuario);
 
-  botao.addEventListener("click", (e) => {
-    e.preventDefault(); // 🔥 impede o link de ir pra outra página
+DB.salvarUsuarios(usuarios);
 
-    const inputs = document.querySelectorAll(".inbox");
+// 🔥 ESSA LINHA FALTAVA
+DB.setUsuarioLogado(novoUsuario);
 
-    const nome = inputs[0].value.trim();
-    const email = inputs[1].value.trim();
-    const senha = inputs[2].value.trim();
-    const repetir = inputs[3].value.trim();
-
-    // 🚨 validação básica
-    if (!nome || !email || !senha || !repetir) {
-      alert("Preencha todos os campos!");
-      return;
-    }
-
-    if (senha !== repetir) {
-      alert("As senhas não coincidem!");
-      return;
-    }
-
-    // 🔥 chama Firebase
-    cadastrar(nome, email, senha, repetir);
-  });
-
-});
+window.location.href = "../html/funil-esporte.html";
