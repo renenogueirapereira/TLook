@@ -1,67 +1,174 @@
-body{
-
-font-family: Arial;
-margin:0;
-background:#f2f2f2;
-
-}
-button {
-  background:#1f7a4c;
-  color:white;
-  font-weight:bold;
+html, body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:linear-gradient(180deg,#e9f5ef,#e5e5e5);
 }
 
+*{
+  box-sizing:border-box;
+}
 
-/* Cabeçalho */
-header {
-  background:#1f7a4c;
+/* CONTAINER */
+
+.container{
+  max-width:360px;
+  margin:auto;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+
+.header{
+  background:linear-gradient(135deg,#1f7a4c,#2ca36b);
   padding:15px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   border-radius:0 0 20px 20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
-.logo { width:90px; }
-.profile { width:40px; border-radius:50%; }
+.logo{
+  width:90px;
+}
 
-.content {
+.profile{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid white;
+}
+
+/* CONTEÚDO */
+
+.content{
+  flex:1;
   padding:15px;
+  padding-bottom:80px;
 }
+
 h2{
-
-text-align:center;
-
+  text-align:center;
+  color:#1f7a4c;
+  margin-bottom:15px;
 }
 
-/* Área de exercícios */
+/* FORMULÁRIOS */
 
-.exercicios{
-
-padding:10px;
-
+input,
+select,
+button{
+  width:100%;
+  margin:10px 0;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  font-size:14px;
 }
 
-/* Cards */
+/* INPUTS */
+
+input,
+select{
+  background:white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* BOTÕES */
+
+button{
+  background:linear-gradient(135deg,#1f7a4c,#2ca36b);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+  box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+button:hover{
+  transform:scale(1.03);
+  background:linear-gradient(135deg,#17603c,#23925f);
+}
+
+/* CARDS */
 
 .card{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  transition:0.2s;
+}
 
-background:white;
-margin:10px 0;
-border-radius:10px;
-box-shadow:0 3px 8px rgba(0,0,0,0.2);
-padding:10px;
-text-align:center;
-
+.card:hover{
+  transform:translateY(-2px);
 }
 
 .card img{
-
-width:100%;
-border-radius:8px;
-
+  width:100%;
+  border-radius:10px;
 }
 
-/* gráfico */
+/* GRÁFICOS */
+
+canvas{
+  margin-top:10px;
+}
+
+/* NAVBAR */
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+
+  width:100%;
+  max-width:360px;
+  margin:auto;
+
+  background:linear-gradient(135deg,#1f7a4c,#2ca36b);
+
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+
+  padding:12px;
+
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
+
+  box-shadow:0 -4px 12px rgba(0,0,0,0.2);
+}
+
+/* BOTÕES NAV */
+
+.nav button{
+  background:none;
+  box-shadow:none;
+  color:white;
+  font-size:13px;
+  padding:6px;
+}
+
+.nav button:hover{
+  transform:scale(1.1);
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  padding:10px;
+}
 
 .grafico{
 
