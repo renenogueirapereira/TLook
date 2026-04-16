@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const lista = document.getElementById("listaTreinos");
 
+  // garante que treinos exista
+  if (!user.treinos) user.treinos = {};
+
   let treinos = user.esporte === "volei"
     ? ["Agachamento", "Salto", "Leg Press"]
     : ["Puxada", "Terra", "Pegada"];
@@ -18,19 +21,31 @@ document.addEventListener("DOMContentLoaded", () => {
   `).join("");
 
   window.salvar = (i, nome) => {
-    const carga = document.getElementById("c"+i).value;
 
-    if (!user.treinos[nome]) user.treinos[nome] = [];
+    
+    const carga = document.getElementById("c" + i).value;
 
-    user.treinos[nome].push({ carga });
+    if (!user.treinos[nome]) {
+      user.treinos[nome] = [];
+    }
+
+    user.treinos[nome].push({
+      carga,
+      data: new Date().toLocaleDateString()
+    });
 
     let usuarios = DB.getUsuarios();
-    usuarios = usuarios.map(u => u.id === user.id ? user : u);
+
+    usuarios = usuarios.map(u =>
+      u.id === user.id ? user : u
+    );
 
     DB.salvarUsuarios(usuarios);
-    DB.setUsuarioLogado(user);
 
-    alert("Salvo!");
+    // corrigido
+    DB.setUsuarioLogado(user.email);
+
+    alert("Treino salvo!");
   };
 
 });

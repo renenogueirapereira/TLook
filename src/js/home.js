@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+const peso = document.querySelectorAll("peso").value;
+const altura = document.querySelectorAll("altura").value;
   const user = DB.getUsuarioLogado();
   if (!user) return;
 
-  const pesos = user.historico.map(d => d.peso);
-  const imcs = user.historico.map(d => d.imc);
+  const imcs = (peso / (alturaM * alturaM));
+
+  pesos = user.historico.map(d => d.peso);
+  imcs = user.historico.map(d => d.imc);
   const labels = user.historico.map((_, i) => "Dia " + (i + 1));
 
   new Chart(document.getElementById("graficoPeso"), {

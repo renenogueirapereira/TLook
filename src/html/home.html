@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,7 +9,6 @@
 
 <link rel="stylesheet" href="../css/stylepagina.css">
 
-<!-- Chart.js grátis -->
 </head>
 
 <body>
@@ -16,26 +16,75 @@
 <div class="container">
 
 <header class="header">
-  <div style="width: 50px; height: 50px;background-color: white; border-radius: 200px; display: flex; align-items: center; justify-content: center;">
-  <img src="../img/eyes-logo-removebg.png" class="logo" style="width: 60px; height: 40px;">
+
+  <div style="width:50px;height:50px;background:white;border-radius:200px;display:flex;align-items:center;justify-content:center;">
+    <img src="../img/eyes-logo-removebg.png" class="logo" style="width:60px;height:40px;">
   </div>
+
   <img src="https://i.pravatar.cc/100" class="profile">
+
 </header>
+
 
 <div class="content">
 
-<h2>Seu Progresso</h2>
+<h2>👋 Bem-vindo!</h2>
+<p>Acompanhe sua evolução física e seus treinos de vôlei.</p>
 
+<!-- CARD RESUMO -->
+
+<div class="card">
+
+<h3>Resumo do Progresso</h3>
+
+<p><strong>Peso atual:</strong> 72 kg</p>
+<p><strong>IMC:</strong> 23.1</p>
+<p><strong>Treinos realizados:</strong> 12</p>
+
+</div>
+
+
+<!-- CARD TREINO -->
+
+<div class="card">
+
+<h3>🏐 Treino de Hoje</h3>
+
+<p>Treine saque e recepção por 20 minutos.</p>
+
+<button onclick="go('volei.html')">
+Iniciar Treino
+</button>
+
+</div>
+
+
+<!-- GRÁFICOS -->
+
+<div class="card">
+
+<h3>📊 Evolução do Peso</h3>
 <canvas id="graficoPeso"></canvas>
+
+</div>
+
+<div class="card">
+
+<h3>📈 Evolução do IMC</h3>
 <canvas id="graficoIMC"></canvas>
 
 </div>
 
+</div>
+
+
 <nav class="nav">
+
   <button onclick="go('home.html')">Início</button>
-  <button onclick="go('treino.html')">Treino</button>
+  <button onclick="go('volei.html')">Treino</button>
   <button onclick="go('avaliacao.html')">Avaliação</button>
   <button onclick="go('perfil.html')">Perfil</button>
+
 </nav>
 
 </div>

@@ -13,7 +13,9 @@
 <div class="container">
 
 <header class="header">
-  <img src="logo.png" class="logo">
+   <div style="width: 50px; height: 50px;background-color: white; border-radius: 200px; display: flex; align-items: center; justify-content: center;">
+  <img src="../img/eyes-logo-removebg.png" class="logo" style="width: 60px; height: 40px;">
+  </div>
   <img src="https://i.pravatar.cc/100" class="profile">
 </header>
 
@@ -21,8 +23,8 @@
 
 <h2>Seus Dados</h2>
 
-<input type="number" id="peso" placeholder="Peso (kg)">
-<input type="number" id="altura" placeholder="Altura (m)">
+<input type="number" id="peso" placeholder="Peso (kg)" id="esporte">
+<input type="number" id="altura" placeholder="Altura (m)" id="esporte">
 
 <select id="esporte">
   <option value="volei">Vôlei</option>
@@ -33,9 +35,10 @@
 
 </div>
 
+
 <nav class="nav">
   <button onclick="go('home.html')">Início</button>
-  <button onclick="go('treino.html')">Treino</button>
+  <button onclick="go('volei.html')">Treino</button>
   <button onclick="go('avaliacao.html')">Avaliação</button>
   <button onclick="go('perfil.html')">Perfil</button>
 </nav>

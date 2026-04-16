@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Perfil</title>
 
 <link rel="stylesheet" href="../css/stylepagina.css">
+
 </head>
 
 <body>
@@ -13,31 +16,74 @@
 <div class="container">
 
 <header class="header">
-  <img src="logo.png" class="logo">
-  <img src="https://i.pravatar.cc/100" class="profile">
+
+<div style="width:50px;height:50px;background:white;border-radius:200px;display:flex;align-items:center;justify-content:center;">
+<img src="../img/eyes-logo-removebg.png" class="logo" style="width:60px;height:40px;">
+</div>
+
+<img src="https://i.pravatar.cc/100" class="profile">
+
 </header>
+
 
 <div class="content">
 
-<h2>Perfil</h2>
+<h2>👤 Perfil do Atleta</h2>
 
-<p><strong>Peso:</strong> <span id="pPeso"></span></p>
-<p><strong>Altura:</strong> <span id="pAltura"></span></p>
+<!-- CARD PERFIL -->
+
+<div class="card" style="text-align:center">
+
+<img src="https://i.pravatar.cc/120" style="width:80px;border-radius:50%;margin-bottom:10px;">
+
+<h3>Seu Perfil</h3>
+
+<p>Acompanhe suas informações físicas.</p>
+
+</div>
+
+
+<!-- CARD DADOS -->
+
+<div class="card">
+
+<h3>📊 Dados Físicos</h3>
+
+<p><strong>Peso:</strong> <span id="pPeso"></span> kg</p>
+<p><strong>Altura:</strong> <span id="pAltura"></span> m</p>
 <p><strong>IMC:</strong> <span id="pImc"></span></p>
 <p><strong>Esporte:</strong> <span id="pEsporte"></span></p>
 
 </div>
 
-<nav class="nav">
-  <button onclick="go('home.html')">Início</button>
-  <button onclick="go('treino.html')">Treino</button>
-  <button onclick="go('avaliacao.html')">Avaliação</button>
-  <button onclick="go('perfil.html')">Perfil</button>
-</nav>
+
+<!-- CARD AÇÃO -->
+
+<div class="card">
+
+<h3>⚙️ Atualizar Dados</h3>
+
+<p>Atualize suas informações físicas para acompanhar sua evolução.</p>
+
+<button onclick="go('avaliacao.html')">
+Atualizar Avaliação
+</button>
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>
+
+
+<nav class="nav">
+
+<button onclick="go('home.html')">Início</button>
+<button onclick="go('volei.html')">Treino</button>
+<button onclick="go('avaliacao.html')">Avaliação</button>
+<button onclick="go('perfil.html')">Perfil</button>
+
+</nav>
+
+</div>
 
 <script src="../js/database.js"></script>
 <script src="../js/perfil.js"></script>
